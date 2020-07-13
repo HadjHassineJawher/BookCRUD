@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+{% block title %}{{parent()}} Liste des Livres  {% endblock %}
+{% block body %}
+<br><br>
+<div class="container-fluid">
+    <table class="table table-light-border table-sm">
+    <thead>
+        <th class="text-center text-primary">Identifiant </th>
+        <th class="text-center text-primary">le titre</th>
+        <th class="text-center text-primary">Image</th>
+        <th class="text-center text-primary">Résumé</th>
+        <th class="text-center text-primary">le(s) éditeur (s)</th>
+        <th class="text-center text-primary">la date d'édition</th>
+        <th class="text-center text-primary" colspan="2">Action</th>
+    </thead>
+    <tbody>
+        {% for value  in livre %} 
+        <tr>
+            <th class="text-center ">{{value.id}}</th>
+            <th class="text-center ">{{value.titre}}</th>
+            <th> <img src="{{value.image}}"  alt="image du livre "/> </th>
+            <th class="text-center ">{{value.resume}}</th>
+            <th class="text-center ">{{value.editeur}}</th>
+            <th class="text-center ">{{value.dateedition | date("m/d/Y")}}</th>
+            <th class="text-center">
+                <a  class="text-center btn btn-outline-info" href="/livre/find/{{value.id}}">detailles</a>
+                <a  class="text-center btn btn-outline-warning" href="/livre/editer/{{value.id}}">Editer</a>
+                <a  class="text-center btn btn-outline-danger" href="/livre/supprimer/{{value.id}}">Supprimer</a>
+            </th>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</div>
+{% endblock %}

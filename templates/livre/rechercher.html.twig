@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+{% block title %}{{parent()}} Catalogue Livres {% endblock %}
+{% block body %}
+<br><br>
+<div class="container-fluid">
+<table class="table table-hover">
+    <thead>
+        <th class="text-center text-primary">Identifiant </th>
+        <th class="text-center text-primary">le titre</th>
+        <th class="text-center text-primary">Adresse de l'Image</th>
+        <th class="text-center text-primary">Résumé</th>
+        <th class="text-center text-primary">le(s) éditeur(s)</th>
+        <th class="text-center text-primary">la date d'édition</th>
+    </thead>
+    <tbody>
+        <tr>
+            <th class="text-center ">{{livre.id}}</th>
+            <th class="text-center ">{{livre.titre}}</th>
+            <th class="text-center "><img src="{{livre.image}}" width="140px" height="140px" alt="image du livre "/></th>
+            <th class="text-center ">{{livre.resume}}</th>
+            <th class="text-center ">{{livre.editeur}}</th>
+            <th class="text-center ">{{livre.dateedition | date("m/d/Y")}}</th>
+        <tr>
+    </body>
+</table>
+</div>
+{% endblock %}
+
